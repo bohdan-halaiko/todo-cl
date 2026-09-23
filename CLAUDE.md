@@ -13,7 +13,7 @@ npm run dev          # dev server (Vite picks the next free port if 5173 is take
 npm run build        # tsc -b && vite build  → dist/, assets at /assets/...
 npm run build:pages  # same, but --base=/todo-cl/ — what CI runs for GitHub Pages
 npm run lint         # oxlint
-npm run preview      # serve the last dist/ build
+npm run preview      # serve the last dist/ build (root base — pair with build, not build:pages)
 ```
 
 There is no test setup (no runner, no test files). `npm run build` is the type check — `tsc -b` runs as its first half; run it alone with `npx tsc -b`.
