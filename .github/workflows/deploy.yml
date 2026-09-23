@@ -12,7 +12,8 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # A running deployment must finish; cancelling it can leave Pages in a stuck state.
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -25,7 +26,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
-      - run: npm run build
+      - run: npm run build:pages
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

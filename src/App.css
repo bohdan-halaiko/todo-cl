@@ -97,11 +97,16 @@
   color: var(--text);
 }
 
-.todo-remove {
+.todo-edit {
+  padding: 6px 10px;
+  font-size: 15px;
+}
+
+.todo-icon-button {
   flex-shrink: 0;
   width: 28px;
   height: 28px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
   color: var(--text);
   background: none;
@@ -110,10 +115,15 @@
   cursor: pointer;
 }
 
-.todo-remove:hover {
+.todo-icon-button:hover:not(:disabled) {
   color: var(--accent);
   border-color: var(--accent-border);
   background: var(--accent-bg);
+}
+
+.todo-icon-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .todo-count {

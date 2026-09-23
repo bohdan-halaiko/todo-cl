@@ -2,8 +2,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
+// The GitHub Pages build passes --base=/todo-cl/ (see the "build:pages" script).
 export default defineConfig({
-  // The app is served from https://bohdan-halaiko.github.io/todo-cl/
-  base: process.env.GITHUB_ACTIONS ? '/todo-cl/' : '/',
   plugins: [react()],
 })
