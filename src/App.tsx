@@ -1,6 +1,6 @@
-import { useState } from "react";
-import type { KeyboardEvent, SyntheticEvent } from "react";
-import "./App.css";
+import { useState } from 'react';
+import type { KeyboardEvent, SyntheticEvent } from 'react';
+import './App.css';
 
 type Todo = {
   id: string;
@@ -10,16 +10,16 @@ type Todo = {
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [editText, setEditText] = useState("");
+  const [editText, setEditText] = useState('');
 
   const addTodo = (event: SyntheticEvent) => {
     event.preventDefault();
     const value = text.trim();
     if (!value) return;
     setTodos((todos) => [...todos, { id: crypto.randomUUID(), text: value, done: false }]);
-    setText("");
+    setText('');
   };
 
   const toggleTodo = (id: string) => {
@@ -39,7 +39,7 @@ function App() {
 
   const cancelEdit = () => {
     setEditingId(null);
-    setEditText("");
+    setEditText('');
   };
 
   const saveEdit = (id: string) => {
@@ -50,8 +50,8 @@ function App() {
   };
 
   const onEditKeyDown = (event: KeyboardEvent<HTMLInputElement>, id: string) => {
-    if (event.key === "Enter") saveEdit(id);
-    if (event.key === "Escape") cancelEdit();
+    if (event.key === 'Enter') saveEdit(id);
+    if (event.key === 'Escape') cancelEdit();
   };
 
   const left = todos.filter((todo) => !todo.done).length;
@@ -79,7 +79,7 @@ function App() {
         <>
           <ul className="todo-list">
             {todos.map((todo) => (
-              <li key={todo.id} className={todo.done ? "done" : undefined}>
+              <li key={todo.id} className={todo.done ? 'done' : undefined}>
                 {editingId === todo.id ? (
                   <>
                     <input
